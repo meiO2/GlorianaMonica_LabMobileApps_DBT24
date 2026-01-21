@@ -4,11 +4,17 @@ class Ujian {
   int nilai = 0;
   int loop = 0;
 
-  void namaNilai() {
+  void nama() {
     stdout.write("Input nama student:");
+    String? input = stdin.readLineSync();
+  }
+
+  void nilaii() {
     stdout.write("Input nilai siswa:");
-    int inputnilai = stdin.readByteSync();
-    nilai += inputnilai;
+    String? inputnilai = stdin.readLineSync();
+    int i = int.parse(inputnilai ?? "");
+    nilai += i;
+    loop+=1;
   }
 
   void avg() {
@@ -17,5 +23,10 @@ class Ujian {
 }
 
 void main() {
-
+  var tes = Ujian();
+  while (tes.loop != 3) {
+    tes.nama();
+    tes.nilaii();
+  }
+  tes.avg();
 }

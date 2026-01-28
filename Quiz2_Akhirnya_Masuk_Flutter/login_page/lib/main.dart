@@ -7,16 +7,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
-        colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 65, 106, 228)),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 65, 106, 228),
+        ),
       ),
       home: const MyHomePage(title: 'Login Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -31,7 +32,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,26 +43,34 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(24),
         child: Center(
           child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Selamat Datang',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 20),
-            const ObscuredTextFieldSample(),
-            const SizedBox(height: 12),
-            const ObscuredTextFieldSample2(),
-            const SizedBox(height: 20),
-            const Text('Created by ERUMA', style: TextStyle(fontSize: 10)),
-          ],
-        ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text(
+                'Selamat Datang',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20),
+              const ObscuredTextFieldSample(),
+              const SizedBox(height: 12),
+              const ObscuredTextFieldSample2(),
+              const SizedBox(height: 20),
+              SizedBox(
+                width: 250,
+                height: 45,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Submit'),
+                ),
+              ),
+              const SizedBox(height: 12),
+              const Text('Created by ERUMA', style: TextStyle(fontSize: 10)),
+            ],
+          ),
         ),
       ),
     );
   }
 }
-
 
 class ObscuredTextFieldSample extends StatelessWidget {
   const ObscuredTextFieldSample({super.key});
@@ -73,7 +81,10 @@ class ObscuredTextFieldSample extends StatelessWidget {
       width: 250,
       child: TextField(
         obscureText: true,
-        decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'Email'),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: 'Email',
+        ),
       ),
     );
   }
@@ -88,7 +99,10 @@ class ObscuredTextFieldSample2 extends StatelessWidget {
       width: 250,
       child: TextField(
         obscureText: true,
-        decoration: InputDecoration(border: OutlineInputBorder(), labelText: 'Password'),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(),
+          labelText: 'Password',
+        ),
       ),
     );
   }

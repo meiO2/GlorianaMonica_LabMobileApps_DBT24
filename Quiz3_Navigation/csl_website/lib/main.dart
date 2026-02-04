@@ -66,7 +66,7 @@ class MyHomePage extends StatelessWidget {
                       return Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const SizedBox(height: 20), // Spasi atas (Teks MENU dihapus)
+                          const SizedBox(height: 20),
                           _buildMenuItem(context, 'PROGRAMS'),
                           _buildMenuItem(context, 'ADMISSION'),
                           _buildMenuItem(context, 'PEOPLE'),

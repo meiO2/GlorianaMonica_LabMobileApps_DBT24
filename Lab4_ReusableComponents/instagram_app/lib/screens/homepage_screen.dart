@@ -3,7 +3,7 @@ import '../data/story_data.dart';
 import '../data/feed_data.dart';
 import '../widgets/story_widget.dart';
 import '../widgets/feed_widget.dart';
-import 'chat_screen.dart'; // Import your ChatScreen file
+import 'chat_screen.dart'; 
 
 class HomepageScreen extends StatefulWidget {
   const HomepageScreen({super.key});
@@ -13,29 +13,24 @@ class HomepageScreen extends StatefulWidget {
 }
 
 class _HomepageScreenState extends State<HomepageScreen> {
-  // 0 is Home, 2 is Chat
   int _selectedIndex = 0;
-
-  // This list holds the different views for each tab
   late final List<Widget> _pages;
 
   @override
   void initState() {
     super.initState();
     _pages = [
-      _buildHomeFeed(), // Index 0: The main feed
-      const Center(child: Text('Reels', style: TextStyle(color: Colors.white))), // Index 1
-      const ChatScreen(), // Index 2: Your Chat Screen
-      const Center(child: Text('Search', style: TextStyle(color: Colors.white))), // Index 3
-      const Center(child: Text('Profile', style: TextStyle(color: Colors.white))), // Index 4
+      _buildHomeFeed(),
+      const Center(child: Text('Reels', style: TextStyle(color: Colors.white))),
+      const ChatScreen(),
+      const Center(child: Text('Search', style: TextStyle(color: Colors.white))),
+      const Center(child: Text('Profile', style: TextStyle(color: Colors.white))),
     ];
   }
 
-  // The original feed layout moved to a helper method
   Widget _buildHomeFeed() {
     return ListView(
       children: [
-        // Stories Section
         SizedBox(
           height: 115,
           child: ListView.builder(
@@ -45,7 +40,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
           ),
         ),
         const Divider(color: Colors.white10, height: 1),
-        // Feeds Section
         ListView.builder(
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
@@ -58,7 +52,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // We only want the AppBar to show when we are on the Home Feed
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: _selectedIndex == 0 
@@ -67,13 +60,12 @@ class _HomepageScreenState extends State<HomepageScreen> {
               elevation: 0,
               leading: const Icon(Icons.add, size: 28, color: Colors.white),
               centerTitle: true,
-              title: const Text(
-                'Instagram',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+              // Replaced Image.network with Image.asset
+              title: Image.asset(
+                'img/image.png',
+                height: 40, 
+                color: Colors.white, // Keeps the asset logo white
+                fit: BoxFit.contain,
               ),
               actions: const [
                 Padding(
@@ -82,17 +74,17 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 ),
               ],
             )
-          : null, // AppBar is hidden for ChatScreen since it has its own
+          : null, 
       
       body: _pages[_selectedIndex],
       
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
         type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex, // Highlights the current tab
+        currentIndex: _selectedIndex,
         onTap: (index) {
           setState(() {
-            _selectedIndex = index; // Changes the screen when tapped
+            _selectedIndex = index;
           });
         },
         showSelectedLabels: false,
@@ -100,14 +92,8 @@ class _HomepageScreenState extends State<HomepageScreen> {
         selectedItemColor: Colors.white,
         unselectedItemColor: Colors.white54,
         items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_filled, size: 30), 
-            label: 'Home'
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.movie_filter_outlined, size: 30), 
-            label: 'Reels'
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.home_filled, size: 30), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.movie_filter_outlined, size: 30), label: 'Reels'),
           BottomNavigationBarItem(
             icon: Badge(
               label: Text('8', style: TextStyle(fontSize: 10)),
@@ -116,10 +102,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
             ),
             label: 'Direct',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search, size: 30), 
-            label: 'Search'
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.search, size: 30), label: 'Search'),
           BottomNavigationBarItem(
             icon: CircleAvatar(
               radius: 14,

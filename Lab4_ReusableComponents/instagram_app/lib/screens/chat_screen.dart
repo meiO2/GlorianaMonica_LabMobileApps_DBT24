@@ -12,14 +12,25 @@ class ChatScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.black,
         elevation: 0,
-        title: Row(
+        // Centers the username globally in the AppBar
+        centerTitle: true, 
+        title: const Row(
+          mainAxisSize: MainAxisSize.min, // Keeps title and icon tight for centering
           children: [
-            const Text('user_dev_01', style: TextStyle(fontWeight: FontWeight.bold)),
-            const Icon(Icons.keyboard_arrow_down, size: 20),
-            const Spacer(),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.edit_note, size: 30)),
+            Text(
+              'user_dev_01', 
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
+            SizedBox(width: 4),
+            Icon(Icons.keyboard_arrow_down, size: 20),
           ],
         ),
+        actions: [
+          IconButton(
+            onPressed: () {}, 
+            icon: const Icon(Icons.edit_note, size: 30),
+          ),
+        ],
       ),
       body: Column(
         children: [
@@ -37,7 +48,10 @@ class ChatScreen extends StatelessWidget {
                 children: [
                   Icon(Icons.search, color: Colors.white54, size: 20),
                   SizedBox(width: 12),
-                  Text("Search or ask Meta AI", style: TextStyle(color: Colors.white54, fontSize: 16)),
+                  Text(
+                    "Search or ask Meta AI", 
+                    style: TextStyle(color: Colors.white54, fontSize: 16),
+                  ),
                 ],
               ),
             ),
@@ -47,9 +61,19 @@ class ChatScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             child: Row(
               children: [
-                Text("Messages", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text(
+                  "Messages", 
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                ),
                 Spacer(),
-                Text("Requests", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 16)),
+                Text(
+                  "Requests", 
+                  style: TextStyle(
+                    color: Colors.blue, 
+                    fontWeight: FontWeight.bold, 
+                    fontSize: 16,
+                  ),
+                ),
               ],
             ),
           ),

@@ -33,10 +33,10 @@ class LoginScreen extends StatelessWidget {
               
               // Instagram Logo Placeholder
               Image.network(
-                'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/132px-Instagram_logo_2016.svg.png',
-                height: 80,
+                'https://static.xx.fbcdn.net/assets/?set=help_center_about_page_illustrations&name=desktop-instagram-gradient-logo&density=1',
+                height: 50,
               ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 80),
 
               // Username Field
               _buildTextField(

@@ -1,0 +1,1 @@
+enum WorkoutType { treadmill, swimming, yoga }

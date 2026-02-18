@@ -1,0 +1,1 @@
+buat buka page lain, di slide kesamping
